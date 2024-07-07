@@ -1,0 +1,81 @@
+#root {
+  max-width: 4800px;
+  margin: auto auto;
+  padding: 2rem;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+}
+
+.btn {
+  margin: 1rem auto;
+  background-color: white;
+  box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 gray;
+  display: flex;
+}
+
+.btn:hover {
+  background-color: rgb(170, 100, 255);
+}
+
+.progress-bar {
+  background-color: gray;
+}
+
+.form-control {
+  box-shadow: 0 8px 16px 0 black, 0 4px 10px 0 gray;
+  max-width: 2400px;
+}
+
+.container-fluid {
+  margin: 2rem auto;
+  background-color: rgb(30, 30, 30);
+  border-radius: 20px;
+  box-shadow: 0 8px 16px 0 black, 0 4px 10px 0 gray;
+  padding: 1rem;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.table {
+  border-radius: 20px;
+  color:aqua;
+}
+
+.center {
+  display: flex;
+  justify-content: left;
+  padding: 1rem 0.6rem;
+  align-items: center;
+  height: 3rem;
+
+}
+#sum-label {
+  padding-left: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+#month-select {
+  background-color: gray;
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+
+#month-select:hover {
+  background-color: rgb(255, 86, 86);
+}
+
+.select-month-label {
+  padding-right: 20px
+}
+
+.btn.btn-secondary.dropdown-toggle {
+  display: block;
+}
