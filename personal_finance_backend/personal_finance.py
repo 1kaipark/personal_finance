@@ -92,7 +92,7 @@ class PersonalFinance:
         read_df = pd.read_csv(f'personal_finance_{self.user_name}.csv')[['date', 'category', 'title', 'amount', 'notes', 'session_id']]
         read_df = read_df.sort_values(by='date', ascending=False)
         if not read_df.empty:
-            self.data = read_df.fillna('')
+            self.data = read_df.fillna('').reset_index(drop=True)
         self.data['date'] = self.data['date'].apply(lambda date: date[:10])
         self.data['date'] = pd.to_datetime(self.data['date'])
         self.data['amount'] = self.data['amount'].apply(lambda amt: np.round(amt, 2))
