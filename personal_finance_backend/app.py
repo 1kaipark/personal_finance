@@ -62,7 +62,7 @@ def get_monthly_sum():
 @app.route('/api/months_list', methods=['GET'])
 def months_list():
     try:
-        months = ['ALL'] + sorted(set(finance._data_month_incl['month']))
+        months = ['ALL'] + sorted(set(finance._data_month_incl['month']))[::-1]
         return jsonify(months)
     except Exception as e:
         return jsonify({'error': str(e)})
