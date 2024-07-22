@@ -8,7 +8,7 @@ import os
 from personal_finance import PersonalFinance
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 # Initialize PersonalFinance with a test user
 finance = PersonalFinance(user_name="kai")
@@ -26,6 +26,16 @@ def get_all_expenses():
     # convert dates to string format
     data['date'] = data['date'].apply(lambda date: str(date)[:10])
     return data.to_json(orient='index')
+
+# expense by category
+@app.route('/api/expenses_by_category', methods=['GET'])
+def expenses_by_category():
+    category = request.args.get('category')
+    try:
+        cat = finance.filter_by_category(category)
+        return cat.to_json(orient='index')
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
     
 # Fetch monthly totals for a specified month
 @app.route('/api/get_monthly_totals', methods=['GET'])

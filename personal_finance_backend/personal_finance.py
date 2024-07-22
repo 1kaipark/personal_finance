@@ -15,6 +15,7 @@ from datetime import datetime as dt
 import pytz
 import numpy as np
 import os
+from typing import Any
 
 class PersonalFinance:
     def __init__(self, user_name: str) -> None:
@@ -68,6 +69,9 @@ class PersonalFinance:
             raise ValueError("Invalid Month: {}".format(month))
         else:
             return self.cat_totals.loc[month].reset_index()
+        
+    def filter_by_category(self, category: str = 'ALL') -> pd.DataFrame:
+        return self.data[self.data['category'] == category]
 
     def delete_index(self, index: int) -> None:
         """remove an index from self.data"""
@@ -76,6 +80,13 @@ class PersonalFinance:
             self.data = self.data.reset_index(drop=True)[['date', 'category', 'title', 'amount', 'notes', 'session_id']]
         else:
             raise IndexError('Index not found')
+        
+    def resort_data(self) -> None:
+        self.data = self.data.sort_values(by='date', ascending=False).fillna('').reset_index(drop=True)
+
+    def edit_index(self, index: int, column: str, new_val: Any) -> None:
+        """edit an expense by index"""
+        ...
 
     def dump(self) -> None:
         """write self.data to csv file"""
